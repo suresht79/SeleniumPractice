@@ -16,7 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.DateUtil;
 
-public class SaberLibraryTest {
+public class ExcelFileReader {
  
     private static HSSFSheet ExcelWSheet;
     private static HSSFWorkbook ExcelWBook;
@@ -25,7 +25,7 @@ public class SaberLibraryTest {
     
     private static final String FILE_NAME = "C:\\TCS\\Personal\\QA\\flightTestData_testcase.xls";
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception{ 
     	
     	 System.out.println("testcase Data for: " + "bookRoundTripFlightTest");
     	 ArrayList<Map<String,String>> testCaseData = getTestCaseData( FILE_NAME, "roundTrip", "bookRoundTripFlightTest");

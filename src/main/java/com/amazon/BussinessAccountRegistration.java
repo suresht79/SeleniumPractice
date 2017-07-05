@@ -47,7 +47,7 @@ public class BussinessAccountRegistration {
 
 		ArrayList<Map<String, String>> testCaseData = null;
 		try {
-			testCaseData = SaberLibraryTest.getTestCaseData("C:\\Deepti\\softwaresqa\\AmazonTestData.xls",
+			testCaseData = ExcelFileReader.getTestCaseData("C:\\Deepti\\softwaresqa\\AmazonTestData.xls",
 					"AmazonTestData", "BussinessAccountRegistration");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
