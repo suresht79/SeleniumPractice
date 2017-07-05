@@ -24,6 +24,7 @@ public class BussinessAccountRegistration {
 				"C:\\Deepti\\H2K\\FirstSel\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.com");
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Actions actions = new Actions(driver);
 		WebElement menuHoverLink = driver.findElement(By.id("nav-link-accountList"));
@@ -33,7 +34,7 @@ public class BussinessAccountRegistration {
 																												// the
 																												// submenu
 		actions.moveToElement(submenu1).click().build().perform();
-		Assert.assertEquals("Amazon Business", driver.getTitle());
+		Assert.assertEquals(driver.getTitle(), "Amazon Business");
 		driver.findElement(By.id("B2B-Full-1-heroctavideo-register-announce")).click();
 
 		Assert.assertTrue(driver.getPageSource().contains("register your business"));
@@ -60,8 +61,10 @@ public class BussinessAccountRegistration {
 		dropdown.selectByVisibleText(data.get("Industry"));
 		driver.findElement(By.id("input_address1")).sendKeys(data.get("StreetAddress1"));
 		driver.findElement(By.id("input_city")).sendKeys(data.get("City"));
-		Select stateDropdown = new Select(driver.findElement(By.id("input_State")));
+		Select stateDropdown = new Select(driver.findElement(By.id("native_State")));
 		stateDropdown.selectByVisibleText(data.get("State"));
+		driver.findElement(By.id("input_zip")).sendKeys(data.get("Zip"));
+		driver.findElement(By.name("useAddressForShipping")).click();
 
 	}}
 	
