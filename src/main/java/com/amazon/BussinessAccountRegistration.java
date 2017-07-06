@@ -1,5 +1,7 @@
 package com.amazon;
 
+import static org.testng.Assert.assertSame;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +26,7 @@ public class BussinessAccountRegistration {
 				"C:\\Deepti\\H2K\\FirstSel\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.com");
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Actions actions = new Actions(driver);
 		WebElement menuHoverLink = driver.findElement(By.id("nav-link-accountList"));
@@ -63,9 +65,16 @@ public class BussinessAccountRegistration {
 		driver.findElement(By.id("input_city")).sendKeys(data.get("City"));
 		Select stateDropdown = new Select(driver.findElement(By.id("native_State")));
 		stateDropdown.selectByVisibleText(data.get("State"));
-		driver.findElement(By.id("input_zip")).sendKeys(data.get("Zip"));
-		driver.findElement(By.name("useAddressForShipping")).click();
-
+		driver.findElement(By.id("input_zip")).sendKeys(data.get("WrongZip"));
+		//driver.findElement(By.name("useAddressForShipping")).click();
+		driver.findElement(By.xpath("//*[@id='business-info-form']/div[8]/div[2]/div/label")).click();
+		driver.findElement(By.id("input_voice")).sendKeys(data.get("BusinessPhone"));
+		driver.findElement(By.name("shouldPerformAvsValidation")).click();
+		Assert.assertTrue(driver.getPageSource().contains("Something is wrong with the address. Please review before continuing."));
+		driver.findElement(By.id("input_zip")).clear();
+		driver.findElement(By.id("input_zip")).sendKeys(data.get("CorrectZip"));
+		driver.findElement(By.name("shouldPerformAvsValidation")).click();
+		
 	}}
 	
 
