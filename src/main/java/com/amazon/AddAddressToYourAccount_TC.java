@@ -39,7 +39,7 @@ public class AddAddressToYourAccount_TC {
 			e.printStackTrace();
 		}
 		
-		Map<String, String> data1 = testCaseData.get(0);
+		/*Map<String, String> data1 = testCaseData.get(0);
 		driver.findElement(By.id("ap_email")).sendKeys(data1.get("Email"));
 		driver.findElement(By.id("ap_password")).sendKeys(data1.get("Password"));
 		driver.findElement(By.id("signInSubmit")).click();
@@ -49,7 +49,9 @@ public class AddAddressToYourAccount_TC {
 		driver.findElement(By.id("address-ui-widgets-enterAddressCity")).sendKeys(data1.get("City"));
 		driver.findElement(By.id("address-ui-widgets-enterAddressStateOrRegion")).sendKeys(data1.get("State"));
 		driver.findElement(By.id("address-ui-widgets-enterAddressPostalCode")).sendKeys(data1.get("ZipCode"));
-		driver.findElement(By.id("address-ui-widgets-enterAddressPhoneNumber")).sendKeys(data1.get("PhoneNumber"));
+		driver.findElement(By.id("address-ui-widgets-enterAddressPhoneNumber")).sendKeys(data1.get("PhoneNumber"));*/
+		
+		
 		
 		
 		
